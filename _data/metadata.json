@@ -1,20 +1,20 @@
 {
-  "title": "Your Blog Name",
-  "url": "https://example.com/",
-  "description": "I am writing about my experiences as a naval navel-gazer.",
+  "title": "Pure Green Cleaning San Antonio",
+  "url": "https://pure-green.netlify.app/",
+  "description": "Pure Green provides eco-friendly cleaning services to the residents and businesses of San Antonio by utilizing green products, green equipment and green procedures.",
   "feed": {
-    "subtitle": "I am writing about my experiences as a naval navel-gazer.",
+    "subtitle": "Pure Green provides eco-friendly cleaning services to the residents and businesses of San Antonio by utilizing green products, green equipment and green procedures.",
     "filename": "feed.xml",
     "path": "/feed/feed.xml",
-    "id": "https://example.com/"
+    "id": "https://pure-green.netlify.app/"
   },
   "jsonfeed": {
     "path": "/feed/feed.json",
-    "url": "https://example.com/feed/feed.json"
+    "url": "https://pure-green.netlify.app/feed/feed.json"
   },
   "author": {
     "name": "Your Name Here",
     "email": "youremailaddress@example.com",
-    "url": "https://example.com/about-me/"
+    "url": "https://pure-green.netlify.app/about-me/"
   }
 }
