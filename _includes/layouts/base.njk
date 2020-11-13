@@ -11,36 +11,92 @@
     <link rel="alternate" href="{{ metadata.jsonfeed.path | url }}" type="application/json" title="{{ metadata.title }}">
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@700&family=Montserrat:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
   </head>
   <body>
-    <header>
-      <h1 class="home"><a href="{{ '/' | url }}">{{ metadata.title }}</a></h1>
+    <header class="main-header">
+        <h1 class="home home-logo"><a href="{{ '/' | url }}"><span class="sr-only">{{ metadata.title }}</span><img src="/img/puregreen-logo-tagline.svg" alt="" width="166" height="89"></a></h1>
+  
+        {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
+        {# <ul class="nav">
+        {%- for entry in collections.all | eleventyNavigation %}
+          <li class="nav-item{% if entry.url == page.url %} nav-item-active{% endif %}"><a href="{{ entry.url | url }}">{{ entry.title }}</a></li>
+        {%- endfor %}
+        </ul> #}
+        
+      <nav class="main-nav">
+        {# Full Navigation w/ dropdowns #}
+        {{ collections.all | eleventyNavigation | eleventyNavigationToHtml({listClass: "main-nav--list", listItemClass: "nav-item", listItemHasChildrenClass: "nav-item-dropdown", activeListItemClass: "nav-item-active"}) | safe }}
+      </nav>
 
-      {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
-      <ul class="nav">
-      {%- for entry in collections.all | eleventyNavigation %}
-        <li class="nav-item{% if entry.url == page.url %} nav-item-active{% endif %}"><a href="{{ entry.url | url }}">{{ entry.title }}</a></li>
-      {%- endfor %}
-      </ul>
+      <nav class="action-nav">
+        <ul>
+          {% for links in actionNav.links %}
+            <li><a href="{{ links.href }}">{{ links.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </nav>
     </header>
 
     <main{% if templateClass %} class="{{ templateClass }}"{% endif %}>
 
-      <!-- Delete this message -->
-      <div class="warning">
-        <ol>
-          <li>Edit the <code>_data/metadata.json</code> with your blog’s information.</li>
-          <li>(Optional) Edit <code>.eleventy.js</code> with your <a href="https://www.11ty.dev/docs/config/">configuration preferences</a>.</li>
-          <li>Delete this message from <code>_includes/layouts/base.njk</code>.</li>
-        </ol>
-        <p><em>This is an <a href="https://www.11ty.dev/">Eleventy project</a> created from the <a href="https://github.com/11ty/eleventy-base-blog"><code>eleventy-base-blog</code> repo</a>.</em></p>
-      </div>
-      <!-- Stop deleting -->
-
       {{ content | safe }}
     </main>
 
-    <footer></footer>
+    <footer>
+      <div class="footer-widget-1">
+        <h2>Pure Green</h2>
+        <ul>
+          <li>LEED</li>
+          <li>Locally Owned</li>
+          <li>Woman Owned</li>
+          <li>Minority Owned</li>
+          <li>Going Green Award Recipient</li>
+          <li>Credit Cards Accepted</li>
+        </ul>
+      </div>
+      <div class="footer-widget-2">
+        <h2>Learn More</h2>
+        <ul>
+          <li><a href="/who-we-are">Who We Are</a></li>
+          <li><a href="#">Pure Green Difference</a></li>
+          <li><a href="#">Why Green?</a></li>
+          <li><a href="#">Employment</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="/archive">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-widget-3">
+        <h2>Services</h2>
+        <ul>
+          <li><a href="#">Commercial</a></li>
+          <li><a href="#">Residential</a></li>
+          <li><a href="#">COVID-19</a></li>
+          <li><a href="#">What We Use</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+      </div>
+      <div class="footer-widget-4 footer-subnewsletter">
+      <h2>Subscribe to our updates</h2>
+        <form action="" class="subscribe-newsletter">
+          <label for="email">Email Address</label>
+          <input type="text" name="email" placeholder="name@email.com">
+          <button class="button button-primary button-reverse--hover">Subscribe</button>
+        </form>
+      </div>
+      <div class="footer-widget-5">
+        <ul class="social-links">
+          <li><img src="/img/facebook-icon-white.svg" alt="" width="20px" height="20px"><span class="sr-only">Follow us on Facebook</span></li>
+          <li><img src="/img/linkedin-icon-white.svg" alt="" width="20px" height="20px"><span class="sr-only">Follow us on Linked In</span></li>
+          <li><img src="/img/instagram-icon-white.svg" alt="" width="20px" height="20px"><span class="sr-only">Follow us on Instagram</span></li>
+          <li><img src="/img/twitter-icon-white.svg" alt="" width="20px" height="20px"><span class="sr-only">Follow us on Twitter</span></li>
+        </ul>
+        <p class="footer-tagline">We Clean for Health &amp; Environment</p>
+        <small class="copyright">&copy; 2020 Pure Green Cleaning Services <br>Designed &amp; built with <span aria-hidden="true">&hearts;</span><span class="sr-only">care</span> by <a href="https://bensondesign.com/">Benson Design</a></small>
+      </div>
+    </footer>
 
     <!-- Current page: {{ page.url | url }} -->
   </body>
