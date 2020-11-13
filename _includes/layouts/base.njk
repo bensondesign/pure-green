@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -9,42 +9,43 @@
     <link rel="stylesheet" href="{{ '/css/prism-base16-monokai.dark.css' | url }}">
     <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
     <link rel="alternate" href="{{ metadata.jsonfeed.path | url }}" type="application/json" title="{{ metadata.title }}">
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com"> 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@700&family=Montserrat:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
   </head>
   <body>
+    <a class="skip-main" href="#main">Skip to Main Content</a>
     <header class="main-header">
-        <h1 class="home home-logo"><a href="{{ '/' | url }}"><span class="sr-only">{{ metadata.title }}</span><img src="/img/puregreen-logo-tagline.svg" alt="" width="166" height="89"></a></h1>
-  
-        {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
-        {# <ul class="nav">
+      <h1 class="home home-logo"><a href="{{ '/' | url }}"><span class="sr-only">{{ metadata.title }}</span><img src="/img/puregreen-logo-tagline.svg" alt="" width="166" height="89"></a></h1>
+      
+      {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
+      {# <ul class="nav">
         {%- for entry in collections.all | eleventyNavigation %}
-          <li class="nav-item{% if entry.url == page.url %} nav-item-active{% endif %}"><a href="{{ entry.url | url }}">{{ entry.title }}</a></li>
+        <li class="nav-item{% if entry.url == page.url %} nav-item-active{% endif %}"><a href="{{ entry.url | url }}">{{ entry.title }}</a></li>
         {%- endfor %}
-        </ul> #}
-        
+      </ul> #}
+      
       <nav class="main-nav">
         {# Full Navigation w/ dropdowns #}
         {{ collections.all | eleventyNavigation | eleventyNavigationToHtml({listClass: "main-nav--list", listItemClass: "nav-item", listItemHasChildrenClass: "nav-item-dropdown", activeListItemClass: "nav-item-active"}) | safe }}
       </nav>
-
+      
       <nav class="action-nav">
         <ul>
           {% for links in actionNav.links %}
-            <li><a href="{{ links.href }}">{{ links.title }}</a></li>
+          <li><a href="{{ links.href }}">{{ links.title }}</a></li>
           {% endfor %}
         </ul>
       </nav>
     </header>
-
-    <main{% if templateClass %} class="{{ templateClass }}"{% endif %}>
-
+    
+    <main{% if templateClass %} class="{{ templateClass }}"{% endif %} id="main">
+      
       {{ content | safe }}
     </main>
-
+    
     <footer>
       <div class="footer-widget-1">
         <h2>Pure Green</h2>
@@ -79,7 +80,7 @@
         </ul>
       </div>
       <div class="footer-widget-4 footer-subnewsletter">
-      <h2>Subscribe to our updates</h2>
+        <h2>Subscribe to our updates</h2>
         <form action="" class="subscribe-newsletter">
           <label for="email">Email Address</label>
           <input type="text" name="email" placeholder="name@email.com">
@@ -97,7 +98,9 @@
         <small class="copyright">&copy; 2020 Pure Green Cleaning Services <br>Designed &amp; built with <span aria-hidden="true">&hearts;</span><span class="sr-only">care</span> by <a href="https://bensondesign.com/">Benson Design</a></small>
       </div>
     </footer>
-
+    
     <!-- Current page: {{ page.url | url }} -->
+    <script src="/js/dothings.js"></script>
   </body>
-</html>
+  </html>
+  

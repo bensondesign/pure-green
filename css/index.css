@@ -36,6 +36,38 @@
     width: 1px;
 }
 
+/* Skip to Main Content */
+/* === Skip To Main Content === */
+a.skip-main {
+  left:-999px;
+  position:absolute;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+  z-index:-999;
+}
+
+a.skip-main:focus, a.skip-main:active {
+  color: #fff;
+  background-color:var(--primaryColor);
+  outline: 0;
+  text-decoration: none;
+  border: solid 3px var(--primaryColor);
+  border-radius: var(--borderRadius);
+  box-shadow: 2px 2px 8px rgba(0,0,0,.1);
+  text-align: center;
+  left: auto;
+  top: auto;
+  width: max-content;
+  height: auto;
+  overflow:auto;
+  margin: 10px 35%;
+  padding:.55em 2em .5em;
+  z-index:999;
+}
+
+
 html,
 body {
   padding: 0;
@@ -285,6 +317,7 @@ header h1 a:focus {
 
 .nav-item-dropdown ul {
   display: none;
+  width: max-content;
   position: absolute;
     /* top: 2em; */
   background-color: var(--backgroundColor);
@@ -298,14 +331,16 @@ header h1 a:focus {
   border-bottom: solid 2px var(--primaryColor);
 }
 
-.nav-item-dropdown:hover ul {
+.nav-item-dropdown:hover ul,
+.nav-item-dropdown:focus-within ul {
   display: block;
+  transition: .2s ease-out;
 }
 
 .nav-item-dropdown ul li {
   display: block;
   position: relative;
-  padding: .75em .5em .75em 1.25em;
+  padding: .75em 1.25em .75em 1.25em;
   border-bottom: solid 2px rgba(0,0,0,0.05);
   border-left: solid 2px rgba(0,0,0,0.05);
   border-right: solid 2px rgba(0,0,0,0.05);
@@ -321,7 +356,8 @@ header h1 a:focus {
   border-bottom: none;
 }
 
-.nav-item-dropdown ul li:hover {
+.nav-item-dropdown ul li:hover,
+.nav-item-dropdown ul li:focus-within {
   background-color: var(--secondaryColor);
 }
 
@@ -329,12 +365,13 @@ header h1 a:focus {
   color: var(--secondaryColor);
 }
 
-.main-header .main-nav .nav-item-dropdown ul li:hover a {
+.main-header .main-nav .nav-item-dropdown ul li:hover a,
+.main-header .main-nav .nav-item-dropdown ul li:focus-within a {
   color: var(--reverseText);
 }
 
 .nav-item-dropdown ul li a:hover,
-.nav-item-dropdown ul li a:focus {
+.nav-item-dropdown ul li a:focus-within {
   outline: none;
   padding-bottom: inherit;
   border-bottom: none;
@@ -472,7 +509,7 @@ footer {
   padding: 2em 4em;
   display: grid;
   gap: 2em;
-  grid-template-columns: .85fr .65fr .5fr .75fr 1fr;
+  grid-template-columns: .85fr .65fr .45fr .75fr 1fr;
 }
 
 footer h2 {
@@ -598,8 +635,9 @@ footer .copyright {
 @media (max-width: 1240px) {
   footer {
     grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1.25fr 1fr .75fr;
     grid-template-rows: repeat(2, 1fr);
-    justify-items: center;
+    justify-items: left;
   }  
 
   footer .footer-widget-4 {
