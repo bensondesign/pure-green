@@ -1,8 +1,10 @@
 ---
 layout: layouts/post.njk
-title: About
+title: Services
 templateClass: tmpl-post
 eleventyNavigation:
-  key: About
-  order: 1
+  key: Services
+  order: 3
 ---
+
+I am a person that writes stuff.

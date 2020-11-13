@@ -1,8 +1,8 @@
 ---
 layout: layouts/post.njk
-title: About
+title: Contact Us
 templateClass: tmpl-post
 eleventyNavigation:
-  key: About
-  order: 1
+  key: Contact
+  order: 5
 ---

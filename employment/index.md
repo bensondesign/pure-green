@@ -1,8 +1,8 @@
 ---
 layout: layouts/post.njk
-title: About
+title: Employment
 templateClass: tmpl-post
 eleventyNavigation:
-  key: About
-  order: 1
+  key: Employment
+  order: 4
 ---
