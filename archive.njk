@@ -1,12 +1,13 @@
 ---
 layout: layouts/home.njk
 permalink: /posts/
+title: Blog
 eleventyNavigation:
-  key: Archive
-  order: 2
+    key: Blog
+    order: 6
 ---
 
-<h1>Archive</h1>
+<h1>{{ title }}</h1>
 
 {% set postslist = collections.posts %}
 {% include "postslist.njk" %}
