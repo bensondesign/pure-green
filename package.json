@@ -1,12 +1,12 @@
 {
-  "name": "Pure Green Website",
+  "name": "pure-green-website",
   "version": "0.0.1",
   "description": "Pure Green provides eco-friendly cleaning services to the residents and businesses of San Antonio by utilizing green products, green equipment and green procedures.",
   "scripts": {
     "build": "eleventy",
     "watch": "eleventy --watch",
     "serve": "eleventy --serve",
-    "start": "eleventy --serve",
+    "start": "eleventy --serve --watch",
     "debug": "DEBUG=* eleventy"
   },
   "repository": {
