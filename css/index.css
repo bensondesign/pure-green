@@ -229,6 +229,17 @@ outline: transparent;
   background-color: var(--primaryColor);
 }
 
+.button-outline {
+  background-color: transparent;
+  color: var(--primaryColor);
+  border-color: var(--primaryColor);
+}
+
+.button-outline:hover {
+  background-color: var(--primaryColor);
+  color: var(--reverseText);
+}
+
 .button-reverse--hover:hover {
   background-color: transparent;
   border-color: var(--reverseText);
