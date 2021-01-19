@@ -8,7 +8,7 @@
   --blue: #082840;
   --white: #fff; */
 
-  --primaryColor: hsl(124, 47%, 49%);
+  --primaryColor: rgb(66, 184, 74);
   --secondaryColor: hsl(225, 64%, 37%);
   --textColor: hsl(0, 0%, 18%);
   --reverseText: hsl(0, 0%, 96%);
